@@ -21,15 +21,48 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="richard" translatesAutoresizingMaskIntoConstraints="NO" id="LqE-7L-kzU">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWO-8s-TTX">
+                                <rect key="frame" x="67" y="537" width="77" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="1S5-Gc-Xpu"/>
+                                    <constraint firstAttribute="height" constant="30" id="6rP-tR-6r4"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="7vs-gL-og5"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="9a0-g3-QOF"/>
+                                </constraints>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="onTakePhotoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K3H-Fa-1kg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHb-H4-mie">
+                                <rect key="frame" x="458" y="537" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="97" id="2Qr-zX-Te8"/>
+                                    <constraint firstAttribute="width" constant="46" id="NZW-WO-Tsd"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Wzx-fF-781"/>
+                                    <constraint firstAttribute="height" constant="30" id="kti-il-PQP"/>
+                                </constraints>
+                                <state key="normal" title="Choose Photo"/>
+                                <connections>
+                                    <action selector="onChoosePhotoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zlg-lt-UKc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LqE-7L-kzU" secondAttribute="bottom" id="TQ6-Ta-n64"/>
-                            <constraint firstItem="LqE-7L-kzU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="cRV-qY-rSx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LqE-7L-kzU" secondAttribute="trailing" constant="-20" id="fQC-3l-vdP"/>
-                            <constraint firstItem="LqE-7L-kzU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="jDo-4u-GFP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SHb-H4-mie" secondAttribute="trailing" constant="25" id="1rL-xp-5na"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mWO-8s-TTX" secondAttribute="bottom" constant="33" id="EQc-1r-EfZ"/>
+                            <constraint firstItem="LqE-7L-kzU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Iw0-4m-h4R"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SHb-H4-mie" secondAttribute="bottom" constant="33" id="LUU-9a-Kbc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LqE-7L-kzU" secondAttribute="trailing" constant="-20" id="ca1-Eb-OYK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LqE-7L-kzU" secondAttribute="bottom" id="gfK-xg-yJy"/>
+                            <constraint firstItem="mWO-8s-TTX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="47" id="ksF-jr-3g1"/>
+                            <constraint firstItem="LqE-7L-kzU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="tSU-54-z4x"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="LqE-7L-kzU" id="aaN-rM-ipF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

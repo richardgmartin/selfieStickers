@@ -16,15 +16,23 @@
 
 -(instancetype)initWithImage:(UIImage *)image {
     
+    // self is the Sticker or stickerView in ViewController.m
+    
     self = [super initWithImage:image];
     
     if (self) {
         
         self.userInteractionEnabled = YES;
         
+        // pan is the UIGestureRecognizer object 
+        
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panHandler:)];
         
-        self.gestureRecognizers = @[pan];
+        UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc]initWithTarget:self action:@selector(pinchHandler:)];
+        
+        UIRotationGestureRecognizer *rotation = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotationHandler:)];
+        
+        self.gestureRecognizers = @[pan, pinch, rotation];
         
         for (UIGestureRecognizer *recognizer in self.gestureRecognizers) {
             
@@ -47,6 +55,40 @@
         [gestureRecognizer setTranslation:CGPointZero inView:gestureRecognizer.view];
         
     }
+}
+
+-(void)pinchHandler:(UIPinchGestureRecognizer *)gestureRecognizer {
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan || gestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        
+        CGFloat scale = gestureRecognizer.scale;
+        
+        [gestureRecognizer.view setTransform:CGAffineTransformScale(gestureRecognizer.view.transform, scale, scale)];
+        
+        [gestureRecognizer setScale:1.0];
+        
+    }
+    
+}
+
+-(void)rotationHandler:(UIRotationGestureRecognizer *)gestureRecognizer {
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan || gestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        
+        CGFloat rotation = gestureRecognizer.rotation;
+        
+        [gestureRecognizer.view setTransform:CGAffineTransformRotate(gestureRecognizer.view.transform, rotation)];
+        
+        [gestureRecognizer setRotation:0];
+        
+    }
+    
+}
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    
+    return YES;
+    
 }
 
 
